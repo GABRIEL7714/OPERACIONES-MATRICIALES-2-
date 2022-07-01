@@ -1,0 +1,138 @@
+from tkinter import * 
+import numpy 
+
+#CREAMOS LA VENTANA RAIZ
+raiz=Tk()
+raiz.title("CALCULADORA DE MATRICES 3X3")
+raiz.config(bg="white")
+raiz.geometry("600x500")
+
+#DECLARAMOS LAS VARIABLES QUE CONTENDRAN LOS ELEMENTOS DE LA PRIMERA MATRIZ
+num00 = IntVar()
+num01 = IntVar()
+num02 = IntVar()
+num10 = IntVar()
+num11 = IntVar()
+num12 = IntVar()
+num20 = IntVar()
+num21 = IntVar()
+num22 = IntVar()
+
+#DECLARAMOS LAS VARIABLES QUE CONTENDRAN LOS ELEMENTOS DE LA SEGUNDA MATRIZ
+snum00 = IntVar()
+snum01 = IntVar()
+snum02 = IntVar()
+snum10 = IntVar()
+snum11 = IntVar()
+snum12 = IntVar()
+snum20 = IntVar()
+snum21 = IntVar()
+snum22 = IntVar()
+
+#DECLARAMOS LAS FUNCIONES PARA OPERAR CON LAS MATRICES
+def suma():
+	a = [[num00.get(),num10.get(),num20.get()],[num01.get(),num11.get(),num21.get()],[num02.get(),num12.get(),num22.get()]]
+	m1 = numpy.array(a)
+
+	b = [[snum00.get(),snum10.get(),snum20.get()],[snum01.get(),snum11.get(),snum21.get()],[snum02.get(),snum12.get(),snum22.get()]]
+	m2 = numpy.array(b)
+	print(m1+m2)
+	return m1+m2
+
+def resta():
+	a = [[num00.get(),num10.get(),num20.get()],[num01.get(),num11.get(),num21.get()],[num02.get(),num12.get(),num22.get()]]
+	m1 = numpy.array(a)
+
+	b = [[snum00.get(),snum10.get(),snum20.get()],[snum01.get(),snum11.get(),snum21.get()],[snum02.get(),snum12.get(),snum22.get()]]
+	m2 = numpy.array(b)
+	print(m1-m2)
+
+	return m1-m2
+
+def producto():
+	a = [[num00.get(),num10.get(),num20.get()],[num01.get(),num11.get(),num21.get()],[num02.get(),num12.get(),num22.get()]]
+	m1 = numpy.array(a)
+
+	b = [[snum00.get(),snum10.get(),snum20.get()],[snum01.get(),snum11.get(),snum21.get()],[snum02.get(),snum12.get(),snum22.get()]]
+	m2 = numpy.array(b)
+	print(m1*m2)
+
+	return m1*m2
+	
+# DECLARAMOS LAS ETIQUETAS Y BOTONES DEL MENU DE OPERACIONES
+etiqueta_operaciones = Label(raiz, text = " OPERACIONES ")
+etiqueta_operaciones.pack()
+
+boton_suma = Button(raiz, text = "+", pady = "5",padx = "8",command = suma)
+boton_suma.pack()
+
+boton_resta = Button(raiz, text = "-", pady = "5",padx = "8",command = resta)
+boton_resta.pack()
+
+boton_producto = Button(raiz, text = "*", pady = "5",padx = "8",command = producto)
+boton_producto.pack()
+
+boton_operar = Button(raiz, text = "Operar", pady = "3",padx = "5")
+boton_operar.pack()
+
+
+#ELEMENETOS DE LA MATRIZ 1
+entrada_00 = Entry(raiz,textvariable = num00)
+entrada_00.place(x=20,y=20, width = 30, height = 50)
+
+entrada_01 = Entry(raiz,textvariable = num01)
+entrada_01.place(x=20,y=80, width = 30, height = 50)
+
+entrada_02 = Entry(raiz,textvariable = num02)
+entrada_02.place(x=20,y=140, width = 30, height = 50)
+
+entrada_10 = Entry(raiz,textvariable = num10)
+entrada_10.place(x=60,y=20, width = 30, height = 50)
+
+entrada_11 = Entry(raiz,textvariable = num11)
+entrada_11.place(x=60,y=80, width = 30, height = 50)
+
+entrada_12 = Entry(raiz,textvariable = num12)
+entrada_12.place(x=60,y=140, width = 30, height = 50)
+
+entrada_20 = Entry(raiz,textvariable = num20)
+entrada_20.place(x=100,y=20, width = 30, height = 50)
+
+entrada_21 = Entry(raiz,textvariable = num21)
+entrada_21.place(x=100,y=80, width = 30, height = 50)
+
+entrada_22 = Entry(raiz,textvariable = num22)
+entrada_22.place(x=100,y=140, width = 30, height = 50)
+
+
+#ELEMENTOS DE LA MATRIZ 2
+entrada2_00 = Entry(raiz,textvariable = snum00)
+entrada2_00.place(x=420,y=20, width = 30, height = 50)
+
+entrada2_01 = Entry(raiz,textvariable = snum01)
+entrada2_01.place(x=420,y=80, width = 30, height = 50)
+
+entrada2_02 = Entry(raiz,textvariable = snum02)
+entrada2_02.place(x=420,y=140, width = 30, height = 50)
+
+entrada2_10 = Entry(raiz,textvariable = snum10)
+entrada2_10.place(x=460,y=20, width = 30, height = 50)
+
+entrada2_11 = Entry(raiz,textvariable = snum11)
+entrada2_11.place(x=460,y=80, width = 30, height = 50)
+
+entrada2_12 = Entry(raiz,textvariable = snum12)
+entrada2_12.place(x=460,y=140, width = 30, height = 50)
+
+entrada2_20 = Entry(raiz,textvariable = snum20)
+entrada2_20.place(x=500,y=20, width = 30, height = 50)
+
+entrada2_21 = Entry(raiz,textvariable = snum21)
+entrada2_21.place(x=500,y=80, width = 30, height = 50)
+
+entrada2_22 = Entry(raiz,textvariable = snum22)
+entrada2_22.place(x=500,y=140, width = 30, height = 50)
+
+
+raiz.mainloop()
+
